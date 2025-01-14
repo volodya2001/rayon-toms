@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #242333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.movie-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.movie-container select {
+    background-color: #fff;
+    border: 0;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.seat {
+    background-color: #444451;
+    height: 26px;
+    width: 32px;
+    margin: 5px 10px 5px 5px;
+    font-size: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.seat.selected {
+    background-color: green;
+}
+
+.seat.sold {
+    background-color: #fff;
+}
+
+.showcase {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 2px;
+}
+
+.screen {
+    position: relative;
+    background-color: #fff;
+    height: 120px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-48deg);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+}
+
+.table {
+    background-color: darkslateblue;
+    width: 90px;
+    height: 26px;
+}
+
+
+
+.container {
+    max-width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    user-select: none;
+}
+
+.container .block .table {
+    margin: auto;
+}
+
+.container .block .chairs {
+    display: flex;
+}
+
+.container .block .chairs .item {
+    background-color: #444451;
+    height: 26px;
+    color: #fff;
+    line-height: 26px;
+    text-align: center;
+    width: 32px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    transition: .2s linear;
+
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.container .block .chairs .item.selected {
+    background-color: green;
+}
+
+.container .block .chairs .item.sold {
+    background-color: #fff;
+    color: #000;
+
+    &:hover {
+        transform: scale(1);
+        cursor: not-allowed;
+    }
+}
+
+@media (max-width:570px) {
+    .movie-container *{
+        font-size: 14px;
+    }
+
+    .showcase {
+        justify-content: center;
+    }
+
+    .screen {
+        width: 90%;
+        margin: auto;
+    }
+
+    .table {
+        width: 80px;
+        height: 20px;
+    }
+
+    .container .block .chairs .item {
+        width: 28px;
+        height: 20px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width:480px) {
+    .table {
+        width: 80px;
+        height: 20px;
+    }
+
+    .container .block .chairs .item {
+        width: 24px;
+        height: 16px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+}
+
+
+
+@media (max-width:420px) {
+    .container {
+        gap: 10px;
+    }
+}
+
+@media (max-width:390px) {
+    .container {
+        gap: 0px;
+    }
+}
+
+
+
+/* ========================================== */
+.row {
+    height: 400px;
+    overflow: auto;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+table tr.sold {
+    background-color: #fff;
+    color: #000;
+}
+
+table tr i {
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(2px);
+    }
+}
+
