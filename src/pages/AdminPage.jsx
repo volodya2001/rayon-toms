@@ -7,7 +7,7 @@ export default function AdminPage() {
     const [selectedChairsCount, setSelectedChairsCount] = useState(0);
 
     useEffect(() => {
-        loadingData('320');
+        loadingData('220');
     }, []);
 
     const loadingData = async (numberShow) => {
