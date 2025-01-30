@@ -13,7 +13,10 @@ export default function AdminPage() {
     const loadingData = async (numberShow) => {
         try {
             const response = await axios.get("chairs?number_show=" + numberShow);
-            setData(response.data);
+            const sortedChairs = response.data.sort((a, b) => {
+                return parseInt(a.text) - parseInt(b.text);
+              });
+            setData(sortedChairs);
             let selectedChars = response.data.filter(el => el.status === 'sold');
             setSelectedChairsCount(selectedChars.length);
         } catch (error) {

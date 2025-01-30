@@ -10,7 +10,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadingData('320');
+    loadingData('220');
   }, []);
 
   const loadingData = async (numberShow) => {
@@ -18,10 +18,15 @@ export default function HomePage() {
       const response = await axios.get("chairs?number_show=" + numberShow);
       const chairs = response.data;
 
+      const sortedChairs = chairs.sort((a, b) => {
+        return parseInt(a.text) - parseInt(b.text);
+      });
+      
+
       const chunkedChairs = [];
 
-      for (let i = 0; i < chairs.length; i += 3) {
-        chunkedChairs.push(chairs.slice(i, i + 3));
+      for (let i = 0; i < sortedChairs.length; i += 3) {
+        chunkedChairs.push(sortedChairs.slice(i, i + 3));
       }
 
       setData(chunkedChairs);
